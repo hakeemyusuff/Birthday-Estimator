@@ -33,20 +33,13 @@ def current_date():
 
 # calculating user age
 def user_age(year, month):
-    current_year, current_month, current_day = current_date()
-    if current_month >= month:
-        return current_year - year
-    else:
-        return current_year - 1 - year
+    current_year = current_date()
+    return current_year[0] - year
 
 
 # calculating next age
 def birthday(year, month, day):
     age = user_age(year, month)
-    c_date = current_date()
-    c_month = c_date[1]
-    if c_month < month:
-        age += 1
     year += age
     bday = [day, calendar.month_name[month], year]
     bday = [str(item) for item in bday]
